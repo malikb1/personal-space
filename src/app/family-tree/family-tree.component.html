@@ -1,0 +1,20 @@
+
+<h2>
+<a title="{{action.description}}" href={{action.link}}  >{{action.name | uppercase}}</a>
+</h2>
+<div>
+<label> Enter any task to bind with todo.ts
+<input [(ngModel)]="todo.task" placeholder="todo task" >
+</label>
+</div>
+This is current value : {{todo.task}}
+<h2>All Actions</h2>
+<ul class="actions">
+	<li *ngFor = "let action of actions" 
+	[class.selected] = "action === selectedAction" (click)=onSelect(action) >
+		<span class="badge">{{action.id}}</span>
+		<a title="{{action.description}}" href={{action.link}}  >{{action.name | uppercase}}</a>
+	</li>
+</ul>
+
+<app-action-detail [action]="selectedAction"></app-action-detail>

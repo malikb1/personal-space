@@ -1,0 +1,17 @@
+<div *ngIf = "action">
+
+	<div *ngIf = "action.description.length !=0 else other_content" >
+		<h2 >  {{ action.description | uppercase }} Details</h2>
+   </div>
+   
+<ng-template #other_content> 
+	<h2 >  {{ action.name | uppercase }} Details</h2>
+</ng-template>
+<div><span class="badge" >id: </span>{{action.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="action.name" placeholder="name">
+  </label>
+</div>
+</div>
+<button (click)="goBack()">Back</button>
